@@ -76,6 +76,8 @@ local Visual = MakeTab({Name = "Esp"})
 
 local Car = MakeTab({Name = "Veículo"})
 
+local Mira = MakeTab({Name = "Mira"})
+
 
 
 
@@ -358,11 +360,11 @@ end
 
 AddSlider(Main, {
 
-    Name = "Velocidade",
+    Name = "Velocidade (Bypass)",
 
     MinValue = 16,
 
-    MaxValue = 180,
+    MaxValue = 170,
 
     Default = 16,
 
@@ -1206,7 +1208,7 @@ Players.PlayerAdded:Connect(function(player)
 
     notify(player.Name, "Entrou no Jogo.")
 
-end)
+end) de
 
 
 
