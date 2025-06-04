@@ -960,7 +960,7 @@ AddSlider(Visual, {
 
 -- Toggle para ativar/desativar o FOV
 
-AddToggle(Visuai, {
+AddToggle(Visual, {
 
     Name = "Campo de visão",
 
@@ -975,8 +975,6 @@ AddToggle(Visuai, {
     end
 
 })
-
-
 
 
 
@@ -1206,7 +1204,7 @@ end
 
 Players.PlayerAdded:Connect(function(player)
 
-    notify(player.Name, "Entrou no Jogo,")
+    notify(player.Name, "Entrou no Jogo.")
 
 end)
 
