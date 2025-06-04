@@ -960,7 +960,7 @@ AddSlider(Visual, {
 
 -- Toggle para ativar/desativar o FOV
 
-AddToggle(Visuais, {
+AddToggle(Visuai, {
 
     Name = "Campo de visão",
 
