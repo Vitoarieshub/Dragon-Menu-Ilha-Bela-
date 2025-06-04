@@ -1208,7 +1208,7 @@ Players.PlayerAdded:Connect(function(player)
 
     notify(player.Name, "Entrou no Jogo.")
 
-end) de
+end)
 
 
 
