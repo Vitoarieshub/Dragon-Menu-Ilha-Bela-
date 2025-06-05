@@ -76,7 +76,7 @@ local Visual = MakeTab({Name = "Esp"})
 
 local Car = MakeTab({Name = "Veículo"})
 
-local PVP = MakeTab({Name = "PvP"})
+local PVP = MakeTab({Name = "PVP"})
 
 
 
@@ -1240,5 +1240,5 @@ AddToggle(Player, {
 
 
 
-local Paragraph = AddParagraph(PvP, {"Desenvolvendo", "Atualizaçôes."})
+local Paragraph = AddParagraph(PVP, {"Desenvolvendo", "Atualizaçôes."})
 
