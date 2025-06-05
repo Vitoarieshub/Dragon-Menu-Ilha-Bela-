@@ -1240,5 +1240,5 @@ AddToggle(Player, {
 
 
 
-local Paragraph = AddParagraph(PVP, {"Desenvolvendo", "Atualizaçôes."})
+local Paragraph = AddParagraph(PVP, {"Desenvolvendo Atualizaçôes.", "."})
 
