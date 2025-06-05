@@ -1378,6 +1378,28 @@ local function iniciarObservar(jogador)
 
 			if jogador.Character and jogador.Character:FindFirstChild("Humanoid") then
 
+		warn("Personagem do jogador não está disponível.")
+
+		return
+
+	end
+
+
+
+	workspace.CurrentCamera.CameraSubject = jogador.Character.Humanoid
+
+	print("Observando " .. jogador.Name)
+
+
+
+	observarConnection = jogador.CharacterAdded:Connect(function()
+
+		wait(1)
+
+		if observando then
+
+			if jogador.Character and jogador.Character:FindFirstChild("Humanoid") then
+
 				workspace.CurrentCamera.CameraSubject = jogador.Character.Humanoid
 
 				print("Continuando observação após respawn.")
@@ -1505,4 +1527,122 @@ AddToggle(Player, {
 local Paragraph = AddParagraph(PVP, {"Note", "Fix"})
 
 SetParagraph(Paragraph, {"Desenvolvendo", "Atualizaçôes!"})
+
+
+
+-- Variável de controle
+
+
+
+local isFollowing = false
+
+
+
+
+
+-- Referências
+
+local player = game.Players.LocalPlayer
+
+local camera = workspace.CurrentCamera
+
+local RunService = game:GetService("RunService")
+
+
+
+-- Função para ativar/desativar o "Free Look"
+
+function aplicarFreecam()
+
+    isFollowing = freecamAtivado
+
+end
+
+
+
+-- Função para encontrar o jogador mais próximo
+
+local function findClosestPlayer()
+
+    local closestPlayer = nil
+
+    local shortestDistance = math.huge
+
+
+
+    for _, otherPlayer in pairs(game.Players:GetPlayers()) do
+
+        if otherPlayer ~= player and otherPlayer.Character then
+
+            local humanoidRootPart = otherPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+            if humanoidRootPart then
+
+                local distance = (player.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+
+                if distance < shortestDistance then
+
+                    shortestDistance = distance
+
+                    closestPlayer = otherPlayer
+
+                end
+
+            end
+
+        end
+
+    end
+
+
+
+    return closestPlayer
+
+end
+
+
+
+-- Atualiza a câmera constantemente se o modo estiver ativado
+
+RunService.Heartbeat:Connect(function()
+
+    if isFollowing then
+
+        local targetPlayer = findClosestPlayer()
+
+        if targetPlayer and targetPlayer.Character then
+
+            local humanoidRootPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+            if humanoidRootPart then
+
+                camera.CFrame = CFrame.new(camera.CFrame.Position, humanoidRootPart.Position)
+
+            end
+
+        end
+
+    end
+
+end)
+
+
+
+-- Toggle para ativar/desativar Free Look (Aimbot de câmera)
+
+AddToggle(PVP, {
+
+    Name = "Aimbot",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        freecamAtivado = Value
+
+        aplicarFreecam()
+
+    end
+
+})
 
