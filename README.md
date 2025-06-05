@@ -68,7 +68,7 @@ MinimizeButton({
 
 -- Criação da aba principal
 
-local Main = MakeTab({Name = "Geral"})
+local Main = MakeTab({Name = "Início "})
 
 local Player  = MakeTab({Name = "Jogador"})
 
@@ -76,7 +76,7 @@ local Visual = MakeTab({Name = "Esp"})
 
 local Car = MakeTab({Name = "Veículo"})
 
-local Mira = MakeTab({Name = "Mira"})
+local PVP = MakeTab({Name = "PvP"})
 
 
 
@@ -1237,4 +1237,8 @@ AddToggle(Player, {
     end
 
 })
+
+
+
+local Paragraph = AddParagraph(PvP, {"Desenvolvendo", "Atualizaçôes."})
 
