@@ -100,6 +100,10 @@ local PVP = MakeTab({Name = "PVP"})
 
 
 
+local Paragraph = AddParagraph(Car, {"Usa somente no", "(Carro)"})
+
+
+
 AddButton(Car, {
 
     Name = "Fly GUI Carro",
